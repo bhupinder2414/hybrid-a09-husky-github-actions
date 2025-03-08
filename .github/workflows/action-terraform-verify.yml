@@ -1,4 +1,4 @@
-name: Validate Terraform Code
+name: Validate Terraform
 
 on:
   pull_request:
@@ -11,20 +11,31 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  validate-format:
     runs-on: ubuntu-latest
-    name: Terraform Validation
+    name: Terraform Format Check
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 2
-      - name: Set up Terraform
+      - name: Configure Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.2.4
-      - name: Initialize Terraform
-        run: terraform init
-      - name: Validate Terraform
-        run: terraform validate
-      - name: Check Terraform Formatting
+      - name: Validate Terraform Format
         run: terraform fmt -check -recursive
+
+  validate-syntax:
+    runs-on: ubuntu-latest
+    name: Terraform Validation
+    needs: validate-format
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.2.4
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Validate
+        run: terraform validate
