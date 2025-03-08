@@ -40,5 +40,5 @@ Before starting with this project, ensure the following are installed and set up
 Clone the repository to your local machine and navigate into the project directory:
 
 ```bash
-git clone https://github.com/your-username/terraform-ci-cd.git
-cd terraform-ci-cd
+git clone https://github.com/bhupinder2414/hybrid-a09-husky-github-actions
+cd hybrid-a09-husky-github-actions
