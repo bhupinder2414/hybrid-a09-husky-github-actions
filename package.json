@@ -1,0 +1,25 @@
+{
+  "name": "hybrid-a09-husky-github-actions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhupinder2414/hybrid-a09-husky-github-actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bhupinder2414/hybrid-a09-husky-github-actions/issues"
+  },
+  "homepage": "https://github.com/bhupinder2414/hybrid-a09-husky-github-actions#readme",
+  "description": "",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
