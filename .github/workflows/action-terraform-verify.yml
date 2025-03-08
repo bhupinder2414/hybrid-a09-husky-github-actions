@@ -39,3 +39,15 @@ jobs:
         run: terraform init
       - name: Terraform Validate
         run: terraform validate
+
+  validate-tflint:
+    runs-on: ubuntu-latest
+    name: Terraform Linter Check (tflint)
+    needs: validate-syntax
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install TFLint
+        run: |
+          curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
+      - name: Run TFLint
+        run: tflint --config .tflint.hcl
